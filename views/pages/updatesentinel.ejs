@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+<!-- 'result' is created from a SELECT request to the sql server in 'index.js' 
+which is then converted into 'results' which is then passed to the '/sentinel' 
+page which is then passed with a POST form back to'index.js' and finally to this 
+page with a GET request. Confusing as hell, I know. 'results' is an object whose 
+properties are the different statistics such as kills and deaths for that hero. 
+For the rest of this document, 'results' is used as 'r'. -->
+<script>
+<% results.forEach(r => { %>
+	
+		<!-- Each hero's '/updatesentinel' page has a unique banner and a unique 
+		portrait saved to the heroku app as png images. The name of these files 
+		is heroname_Portrait and heroname_Banner. In order to get the html to 
+		link to correct hero name, we have to replace the spaces in the hero's 
+		name with underscores. To start, we create the variable 'heroName' and 
+		set it equal to the 'hero' property of results. -->
+		<%var heroName = String(r.hero) %>
+		<!-- Next we create a new string. -->
+		<%var imageName = "" %>
+		<!-- We loop through the 'heroName' string. If the character at the 
+		selected index is a space, we replace it with an underscore. Otherwise, 
+		it is simply added to the 'imageName' string as is. -->
+		<%for (let i = 0; i < heroName.length; i++) { %>
+			<%if (heroName[i] === " ") { %>
+				<%= imageName+="_"%>
+			<% } else { %>
+				<%= imageName+=heroName[i] %>
+			<% } %>
+		<% }; %>
+		<!-- Finally we duplicate 'imageName' as 'portraitName' and then 
+		concatenate both of them with their corresponding suffix, either 
+		'_Portrait.png' or '_Banner.png'. -->
+		<%var portraitName = imageName %>
+		<%= portraitName += "_Portrait.png" %>
+		<%= imageName += "_Banner.png" %>
+		<!-- The ranks of heroes are color coded. The higher they are, the more 
+		green the color of their rank's number. The lower they are, the more red 
+		they are. I useda gradient generator website to calculate 111 different 
+		shades from green to red. Note that all of the javascript on this page 
+		uses ejs notation. -->
+
+		<%= colorArray = ["#00FF00", "#02FC00", "#04FA00", "#06F800", "#09F500", "#0BF300", "#0DF100", "#10EE00", "#12EC00", "#14EA00", "#16E800", "#19E500", "#1BE300", "#1DE100", "#20DE00", "#22DC00", "#24DA00", "#27D700", "#29D500", "#2BD300", "#2DD100", "#30CE00", "#32CC00", "#34CA00", "#37C700", "#39C500", "#3BC300", "#3EC000", "#40BE00", "#42BC00", "#44BA00", "#47B700", "#49B500", "#4BB300", "#4EB000", "#50AE00", "#52AC00", "#55AA00", "#57A700", "#59A500", "#5BA300", "#5EA000", "#609E00", "#629C00", "#659900", "#679700", "#699500", "#6B9300", "#6E9000", "#708E00", "#728C00", "#758900", "#778700", "#798500", "#7C8200", "#7E8000", "#807E00", "#827C00", "#857900", "#877700", "#897500", "#8C7200", "#8E7000", "#906E00", "#936B00", "#956900", "#976700", "#996500", "#9C6200", "#9E6000", "#A05E00", "#A35B00", "#A55900", "#A75700", "#AA5500", "#AC5200", "#AE5000", "#B04E00", "#B34B00", "#B54900", "#B74700", "#BA4400", "#BC4200", "#BE4000", "#C03E00", "#C33B00", "#C53900", "#C73700", "#CA3400", "#CC3200", "#CE3000", "#D12D00", "#D32B00", "#D52900", "#D72700", "#DA2400", "#DC2200", "#DE2000", "#E11D00", "#E31B00", "#E51900", "#E81600", "#EA1400", "#EC1200", "#EE1000", "#F10D00", "#F30B00", "#F50900", "#F80600", "#FA0400", "#FC0200", "#FF0000"] %>
+</script>
+<!-- When the hero's rank appears on the page, it is appended with the 
+corresponding ordinal (such as -st or -nd). This function decides which suffix
+to use. -->
+<%function ordinal (inputNumber) { %>
+	<%if (inputNumber >= 11 && inputNumber <= 13) { %>
+		<%return String(inputNumber) + "th" %>
+	<% }; %>
+	<%if (inputNumber >= 111 && inputNumber <= 111) { %>
+		<%return String(inputNumber) + "th" %>
+	<% }; %>
+	<% if (inputNumber % 10 === 1) { %>
+		<%return String(inputNumber) + "st"; %>
+	<% }; %>
+	<% if (inputNumber % 10 === 2) { %>
+		<%return String(inputNumber) + "nd"; %>
+	<% }; %>
+	<% if (inputNumber % 10 === 3) { %>
+		<%return String(inputNumber) + "rd"; %>
+	<% }; %>
+	<%return String(inputNumber) + "th" %>
+
+<% }; %>
+
+
+	
+	<meta charset="utf-8">
+	<!-- The title of the page is the name of the hero. -->
+	<title><%= r.hero %></title>
+	<!-- Each hero's table has their rank color coded. Since their ranks in each 
+	category are probably different, they need to be styled individually with 
+	their own color from the colorArray above -->
+	<!-- 'ovrNumber' is the large number to the left of the main table-->
+	<style>
+
+	.ovrNumber {
+		font-size: 4.5vw;
+		color: <%= colorArray[r.overallrank-1] %>;
+	}
+	.ovrText {
+		font-weight: normal;
+	}
+	.killCell {
+		color: <%= colorArray[r.killrank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	} 
+	.deathCell {
+		color: <%= colorArray[r.deathrank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+	.assistCell {
+		color: <%= colorArray[r.assistrank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+	.creepCell {
+		color: <%= colorArray[r.creeprank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+	.neutralCell {
+		color: <%= colorArray[r.neutralrank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+	.kdCell {
+		color: <%= colorArray[r.kdratiorank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+	.pvpCell {
+		color: <%= colorArray[r.pvpratingrank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+	.gamescoreCell {
+		color: <%= colorArray[r.gamescorerank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+	.efficiencyCell {
+		color: <%= colorArray[r.efficiencyrank-1] %>;
+		font-size:3.3vw;
+		padding: 4px;	
+	}
+		
+
+	
+	</style>
+
+	<link href="updatesentinelstyle.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<!-- This creates the banner at the top of the page and makes a link that sends 
+the user to the sentinel page. -->
+<a href="https://dota-1.herokuapp.com/sentinel"><img src=<%= imageName %> width="75%"  class="header"></a>
+
+<!-- The hero icon, the overall ranking and the form fields on the left side of the page are all contained in a table. This table is placed on the page as a column alongside the maintable in the middle of the page and the portrait on the right side of the page.-->
+<div class="row">
+	<div class="column1">
+		<form method="POST" action="/resourcesentinel?_method=PUT">
+		<table class="formTable">
+			<colgroup>
+				<col span="1" class="formTableFirstColumn">
+				<col span="1" class="formTableSecondColumn">
+			</colgroup>
+			<!-- Each hero has an icon from the game called 'heroIcon' below. 
+			It is a png named the id of the associated hero. For example, 
+			Admiral has an id of 1 so his icon is called '1.png'.  -->
+			<tr><th class="heroIcon" style="color: #000"><img src="<%= r.id %>.jpg" width="100%"></th><th class="ovrRank"><a href="https://dota-1.herokuapp.com/leaderboardoverallasc"><div class="ovrNumber">#<%= r.overallrank %></div></a><br><div class="ovrText">Overall</div></th></tr>
+
+			<!-- Here are the fields that the user will type in to submit new 
+			data for a game. These values are then passed by the form as a POST 
+			through the 'methodOverride' package to 'index.js'. The data is then 
+			combined with the old data and sent the sql server with a PUT 
+			request.-->
+			<tr><td>Games:</td><td><input type="number" name="games" value=1></td></tr>
+			<tr><td>Kills:</td><td><input type="number" name="kills"><br></td></tr>
+			<tr><td>Deaths:</td><td><input type="number" name="deaths"></td></tr>
+			<tr><td>Assists:</td><td><input type="number" name="assists"></td></tr>
+			<tr><td>Creep:</td><td><input type="number" name="creep"></td></tr>
+			<tr><td>Neutral:</td><td><input type="number" name="neutral"></td></tr>
+			<!-- This sends the old data, taken from the 'results' object and sends it, along with the new user-inputted data, to 'index.js' and then to the sql server. --> 
+  			<input type="hidden" name="id" value=<%= r.id %>>
+			<input type="hidden" name="oldgames" value=<%= r.games %>>
+			<input type="hidden" name="oldkills" value=<%= r.kills %>>
+			<input type="hidden" name="olddeaths" value=<%= r.deaths %>>
+			<input type="hidden" name="oldassists" value=<%= r.assists %>>
+			<input type="hidden" name="oldcreep" value=<%= r.creep %>>
+			<input type="hidden" name="oldneutral" value=<%= r.neutral %>>
+			</table>
+			<input type="submit" value="Submit">
+			</form> 
+			</div>
+
+			<div class="column2">
+			<table class="mainTable">
+
+			<colgroup>
+				<col span="3" class="maintable">
+				<col span="1" class="rankcolumn">
+			</colgroup> 
+
+			<!-- This creates the table in the center of the page and populates 
+			it with data taken from the 'results' object. -->
+			<tr>
+			<th class="emptycell"></th>
+			<th>Total</th>
+			<th>Per Game</th>
+			<th>Rank</th>
+			</tr>
+			<tr>
+			<td>Games</td>
+			<td><%= r.games %></td>
+			<td></td>
+			<td></td>
+			</tr>
+			<tr>
+			<td>Kills</td>
+			<td> <%= r.kills %> </td>
+			<td> <%= r.killspergame %> </td>
+			<td class="killCell"> <%= ordinal(r.killrank) %> </td>
+			</tr>
+			<tr>
+			<td>Deaths</td>
+			<td> <%= r.deaths %> </td>
+			<td> <%= r.deathspergame %> </td>
+			<td class="deathCell"> <%= ordinal(r.deathrank) %> </td>
+			</tr>
+			<tr>
+			<td>Assists</td>
+			<td> <%= r.assists %> </td>
+			<td> <%= r.assistspergame %> </td>
+			<td class="assistCell"> <%= ordinal(r.assistrank) %> </td>
+			</tr>
+			<tr>
+			<td>Creep</td>
+			<td> <%= r.creep %> </td>
+			<td> <%= r.creeppergame %> </td>
+			<td class="creepCell"> <%= ordinal(r.creeprank) %> </td>
+			</tr>
+			<tr>
+			<td>Neutral</td>
+			<td> <%= r.neutral %> </td>
+			<td> <%= r.neutralpergame %> </td>
+			<td class="neutralCell"> <%= ordinal(r.neutralrank) %> </td>
+			</tr>
+			<tr>
+			<td>K/D Ratio</td>
+			<td> <%= r.kdratio.toFixed(2) %> </td>
+			<td></td>
+			<td class="kdCell"> <%= ordinal(r.kdratiorank) %> </td>
+			</tr>
+			<tr>
+			<td>PVP Rating</td>
+			<td> <%= r.pvprating.toFixed(2) %> </td>
+			<td></td>
+			<td class="pvpCell"> <%= ordinal(r.pvpratingrank) %> </td>
+			</tr>
+			<tr>
+			<td>Gamescore</td>
+			<td> <%= r.gamescore.toFixed(0) %> </td>
+			<td></td>
+			<td class="gamescoreCell"> <%= ordinal(r.gamescorerank) %> </td>
+			</tr>
+			<tr>
+			<td>Efficiency</td>
+			<td> <%= r.efficiency.toFixed(2) %> </td>
+			<td></td>
+			<td class="efficiencyCell"> <%= ordinal(r.efficiencyrank) %> </td>
+				</tr>
+			</table>
+		</div>
+		<!-- This displays the hero's portrait on the page. -->
+		<div class="column3">
+		<img src=<%= portraitName %> class="portrait" width="300%">
+	</div>
+</div>
+
+<% }); %>
+
+</body>
+</html>
+
+

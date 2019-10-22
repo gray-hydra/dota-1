@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pure Damage</title>
+<style>
+	
+@font-face {
+		font-family: 'WC3Font';
+		src: url('WC3Font.TTF');
+}	
+	
+	
+body {
+  margin: 0;
+  min-width: 250px;
+  background-color: #373737;
+  color: #A19DFF;
+  font-family: 'WC3Font';
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Style the header */
+.header {
+  background-color: #000000;
+  padding: 4px 4px;
+  text-align: center;
+  font-family: 'Warcraft Font';
+  font-size: 2em;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.addBtn:hover {
+  background-color: #515151;
+}
+	
+#checklist {
+	font-family: "WC3Font";
+    border-collapse: collapse;
+    width: 100%;
+	border: black;
+	
+}
+
+#checklist td, #checklist th {
+    border: 1px solid #ddd;
+    padding: 5px;
+
+}
+	
+#checklist td {
+	cursor: url(NightElf.cur), default;	
+}
+
+#checklist td.checked {
+  background: black;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+
+}	
+	
+#checklist tr:nth-child(even){background-color: #f2f2f2;}
+
+#checklist td:hover {background-color: #5D5D5D;}
+
+#checklist th {
+
+    text-align: left;
+    background-color: #4D4D4D;
+    color: wheat;
+	font-weight: bold;
+
+}	
+	
+</style>
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <img src="Sentinel Pure Damage Banner.png">
+</div>
+
+<table id="checklist">
+<thead><tr class="tableizer-firstrow"><th>Item</th><th>Cost</th><th>Location</th><th>Completed</th></tr></thead><tbody>
+ <tr><td>Animal Courier</td><td>150</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Mask of Death</td><td>900</td><td>Side Shop</td><td>&nbsp;</td></tr>
+  <tr><td>Mask of Madness</td><td>1000</td><td>Fountain</td><td>Mask of Madness</td></tr>
+ <tr><td>Gloves of Haste</td><td>500</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Elvenskin</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Speed</td><td>450</td><td>Side Shop</td><td>Power Treads</td></tr>
+ <tr><td>Gloves of Haste</td><td>500</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Elvenskin</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Blades of Attack</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal courier get</b> Blade of Alacrity+Yasha</td><td>1600</td><td>Fountain</td><td>Yasha</td></tr>
+ <tr><td><b>Animal courier get</b> Mithril Hammer+Maelstrom</td><td>2200</td><td>Fountain</td><td>Maelstrom</td></tr>
+ <tr><td><b>Animal courier get</b> Broadsword+Crystalys</td><td>1700</td><td>Fountain</td><td>Crystalys</td></tr>
+ <tr><td><b>Animal courier get</b> Demon Edge</td><td>2400</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal courier get</b> Buriza Recipe</td><td>1000</td><td>Fountain</td><td>Buriza</td></tr>
+ <tr><td><b>Animal courier get</b> Hyperstone</td><td>2000</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal courier get</b> Mjollnir Recipe</td><td>900</td><td>Fountain</td><td>Mjollnir</td></tr>
+ <tr><td><b>Animal courier get</b> Demon Edge</td><td>2400</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal courier get</b> 2xJavelin</td><td>3000</td><td>Fountain</td><td>Monkey King Bar</td></tr>
+ <tr><td><b>Animal courier get</b> Ultimate Orb+Manta Style</td><td>3000</td><td>Fountain</td><td>Manta Style</td></tr>
+ <tr><td><b>Animal courier get</b> Eaglehorn</td><td>3300</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal courier get</b> Talisman of Evasion+Quarterstaff</td><td>2700</td><td>Fountain</td><td>The Butterfly</td></tr>
+
+<script>
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('table');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'TD') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+	
+</script>
+
+</body>
+</html>

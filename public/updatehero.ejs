@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+
+<style>
+
+.header {
+  background-color: #000000;
+  padding: 0px 0px;
+  color: #B8B8B8;
+  text-align: center;
+  font-size: 2em;
+}
+	
+@font-face {
+		font-family: 'WC3Font';
+		src: url("http://michaelriedman.com/WC3Font.TTF");
+}	
+
+	body {
+		background: #000000;
+		color: azure;
+	}
+	a:link {
+		color: azure;
+		text-decoration: none;
+		font-family: 'WC3Font';
+		cursor: url("http://michaelriedman.com/NightElf.cur"), default;
+		
+	}
+	
+	a:visited {
+		color: azure;
+		text-decoration: none;	
+		font-weight: bold;
+		font-family: 'WC3Font';
+	}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+	
+	table {
+    border-collapse: collapse;
+    width: 100%;
+	border: black;
+	font-weight: bold; 
+		
+	
+}
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: antiquewhite;
+	font-weight: bold; 
+	font-size: 1.2em;
+
+	
+}	
+	
+	table td {
+	cursor: url("http://michaelriedman.com/NightElf.cur"), default;	
+}	
+	
+	
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+	text-align: center;
+
+}
+	
+}	
+
+#fooholder {
+	background-color:red;
+	cursor:pointer;
+}
+
+	
+</style>
+
+</head>
+
+<body>
+
+<div id="myDIV" class="header">
+  <img src="http://michaelriedman.com/Sentinel%20Banner.png" width="100%">
+</div>
+
+
+
+
+
+
+<% results.forEach(r => { %>
+<%= r.hero %>
+<%= r.kills %>
+<%= r.deaths %>
+<%= r.assists %>
+<img src="<%= r.id %>.jpg">
+
+
+<form method="POST" action="/resource?_method=PUT">
+  Kills:<br>
+  <input type="number" name="kills"><br>
+  Deaths:<br>
+  <input type="number" name="deaths" ><br>
+  Assists:<br>
+  <input type="hidden" name="id" value=<%= r.id %>>
+  <input type="number" name="assists" ><br>
+  <input type="submit" value="Submit">
+</form> 
+<% }); %>
+
+
+</body>
+</html>
+

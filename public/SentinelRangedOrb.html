@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranged Orb</title>
+<link rel="stylesheet" type="text/css" href="SentinelStyle.css">
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <img src="Sentinel Ranged Orb Banner.png">
+</div>
+
+<table id="checklist">
+<thead><tr class="tableizer-firstrow"><th>Item</th><th>Cost</th><th>Location</th><th>Completed</th></tr></thead><tbody>
+ <tr><td>Ring of Protection+Slippers of Agi+Animal Courier</td><td>475</td><td>Fountain</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Regen</td><td>350</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Sobi Mask</td><td>325</td><td>Side Shop</td><td>Basilius</td></tr>
+ <tr><td>Circlet of Nobility+Wraith Band+Headdress of Rejuvenation+Branch</td><td>585</td><td>Fountain</td><td>Aquila+Headdress</td></tr>
+ <tr><td>Ring of Regen</td><td>350</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Gloves of Haste</td><td>500</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Elvenskin</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Speed</td><td>450</td><td>Side Shop</td><td>Power Treads</td></tr>
+ <tr><td>Ring of Regen</td><td>350</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Planeswalker Cloak</td><td>550</td><td>Side Shop</td><td>Hood of Defiance</td></tr>
+ <tr><td>Blades of Attack</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier get</b> Broadsword+Crystalys</td><td>1700</td><td>Fountain</td><td>Crystalys</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>Perseverance</td></tr>
+ <tr><td><b>Animal Courier get</b> Khadgar's</td><td>900</td><td>Fountain</td><td>Khadgar's Pipe</td></tr>
+ <tr><td>Boots of Elvenskin</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+  <tr><td><b>Animal courier get</b> Blade of Alacrity+Yasha</td><td>1600</td><td>Fountain</td><td>Yasha</td></tr>
+ <tr><td>Demon Edge+Buriza</td><td>3400</td><td>Fountain</td><td>Buriza</td></tr>
+ <tr><td><b>Animal Courier get</b> Ultimate Orb+Manta</td><td>3000</td><td>Fountain</td><td>Manta Style</td></tr>
+ <tr><td>Ultimate Orb+Linken's</td><td>3425</td><td>Fountain</td><td>Linken's</td></tr>
+</tbody></table>
+<script>
+
+var list = document.querySelector('table');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'TD') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hero Picker</title>
+<link rel="stylesheet" type="text/css" href="sentinelpickerstyle.css">
+    
+
+
+</head>
+<body>
+
+<table id="fa">
+  <caption>
+  </caption>
+  <col>
+  <col>
+  <colgroup span="3"></colgroup>
+	<tr>
+		<th colspan="2" scope="colgroup">
+			<a href="sentinelpicker" class="class1"><img src="Sentinel Banner.png" class="banner"></a>
+		</th>
+		<th colspan="2" scope="colgroup">
+			<a href="scourgepicker" class="class1"><img src="Scourge Banner.png" class="banner"></a>
+		</th>
+	</tr>
+	<tr>
+		<td width="67px" height="67px">
+			<div id="sentinelHero1ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="sentinelHero1Name" class="heroName"></div></td>
+		<td width="67px" height="67px">
+			<div id="playerImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD">
+			<a href="Scourge.html" class="class1">Ready!</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="sentinelHero2ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="sentinelHero2Name" class="heroName"></div></td>
+		<td>
+			<div id="scourgeHero2ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="scourgeHero2Name" class="heroName"></div></td>
+	</tr>
+	<tr>
+		<td>
+			<div id="sentinelHero3ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="sentinelHero3Name" class="heroName"></div></td>
+		<td>
+			<div id="scourgeHero3ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="scourgeHero3Name" class="heroName"></div></td>
+	</tr>
+	<tr>
+		<td>
+			<div id="sentinelHero4ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="sentinelHero4Name" class="heroName"></div></td>
+		<td>
+			<div id="scourgeHero4ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="scourgeHero4Name" class="heroName"></div></td>
+	</tr>
+	<tr>
+		<td>
+			<div id="sentinelHero5ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="sentinelHero5Name" class="heroName"></div></td>
+		<td>
+			<div id="scourgeHero5ImageTag" class="heroImage"></div>
+		</td>
+		<td class="heroTD"><div id="scourgeHero5Name" class="heroName"></div></td>
+	</tr>
+</table>
+
+<div id="sentinelAverage"></div>
+<div id="scourgeAverage"></div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	$('#fa td.heroTD').each(function(){
+		if (($(this).text() == 'Admiral') || 
+			($(this).text() == 'Beastmaster') || 
+			($(this).text() == 'Centaur Warchief') || 
+			($(this).text() == 'Earthshaker') || 
+			($(this).text() == 'Omniknight') || 
+			($(this).text() == 'Pandaren Brewmaster') || 
+			($(this).text() == 'Rogue Knight') || 
+			($(this).text() == 'Stone Giant') || 
+			($(this).text() == 'Tauren Chieftan') || 
+			($(this).text() == 'Treant Protector') || 
+			($(this).text() == 'Guardian Wisp') || 
+			($(this).text() == 'Alchemist') || 
+			($(this).text() == 'Clockwerk Goblin') || 
+			($(this).text() == 'Dragon Knight') || 
+			($(this).text() == 'Sacred Warrior') || 
+			($(this).text() == 'Bristleback') || 
+			($(this).text() == 'Phoenix') || 
+			($(this).text() == 'Tuskarr') || 
+			($(this).text() == 'Legion Commander') || 
+			($(this).text() == 'Goblin Shredder') || 
+			($(this).text() == 'Earth Spirit')
+		   ) {
+			$(this).css('background-color','#840000');
+		}
+		else if(($(this).text() == 'Anti-Mage') ||
+				($(this).text() == 'Dwarven Sniper') ||
+				($(this).text() == 'Juggernaut') ||
+				($(this).text() == 'Lone Druid') ||
+				($(this).text() == 'Moon Rider') ||
+				($(this).text() == 'Morphling') ||
+				($(this).text() == 'Naga Siren') ||
+				($(this).text() == 'Phantom Lancer') ||
+				($(this).text() == 'Priestess of the Moon') ||
+				($(this).text() == 'Stealth Assassin') ||
+				($(this).text() == 'Troll Warlord') ||
+				($(this).text() == 'Gyrocopter') ||
+				($(this).text() == 'Drow Ranger') ||
+				($(this).text() == 'Templar Assassin') ||
+				($(this).text() == 'Ursa Warrior') ||
+				($(this).text() == 'Vengeful Spirit') ||
+				($(this).text() == 'Bounty Hunter') ||
+				($(this).text() == 'Ember Spirit')
+				) {
+			$(this).css('background-color','darkgreen');
+		}
+		else if(($(this).text() == 'Crystal Maiden') ||
+				($(this).text() == 'Enchantress') ||
+				($(this).text() == 'Faerie Dragon') ||
+				($(this).text() == 'Holy Knight') ||
+				($(this).text() == 'Keeper of the Light') ||
+				($(this).text() == 'Lord of Olympus') ||
+				($(this).text() == 'Prophet') ||
+				($(this).text() == 'Silencer') ||
+				($(this).text() == 'Slayer') ||
+				($(this).text() == 'Storm Spirit') ||
+				($(this).text() == 'Windrunner') ||
+				($(this).text() == 'Disruptor') ||
+				($(this).text() == 'Ogre Magi') ||
+				($(this).text() == 'Goblin Techies') ||
+				($(this).text() == 'Twin Head Dragon') ||
+				($(this).text() == 'Tinker') ||
+				($(this).text() == 'Shadow Shaman') ||
+				($(this).text() == 'Grand Magus') ||
+				($(this).text() == 'Skywrath Mage') ||
+				($(this).text() == 'Oracle')
+				) {
+			$(this).css('background-color','darkblue');
+		}
+		else if(($(this).text() == 'Axe') ||
+				($(this).text() == 'Chaos Knight') ||
+				($(this).text() == 'Doom Bringer') ||
+				($(this).text() == 'Lifestealer') ||
+				($(this).text() == 'Lord of Avernus') ||
+				($(this).text() == 'Lycanthrope') ||
+				($(this).text() == 'Night Stalker') ||
+				($(this).text() == 'Pit Lord') ||
+				($(this).text() == 'Pudge') ||
+				($(this).text() == 'Skeleton King') ||
+				($(this).text() == 'Slithereen Guard') ||
+				($(this).text() == 'Undying') ||
+				($(this).text() == 'Tidehunter') ||
+				($(this).text() == 'Magnataur') ||
+				($(this).text() == 'Spiritbreaker') ||
+				($(this).text() == 'Sand King')
+				) {
+			$(this).css('background-color','#490000');
+		}
+		else if(($(this).text() == 'Bloodseeker') ||
+				($(this).text() == 'Bone Fletcher') ||
+				($(this).text() == 'Broodmother') ||
+				($(this).text() == 'Nerubian Assassin') ||
+				($(this).text() == 'Nerubian Weaver') ||
+				($(this).text() == 'Phantom Assassin') ||
+				($(this).text() == 'Shadow Fiend') ||
+				($(this).text() == 'Soul Keeper') ||
+				($(this).text() == 'Spectre') ||
+				($(this).text() == 'Venomancer') ||
+				($(this).text() == 'Viper') ||
+				($(this).text() == 'Geomancer') ||
+				($(this).text() == 'Lightning Revenant') ||
+				($(this).text() == 'Murloc Nightcrawler') ||
+				($(this).text() == 'Faceless Void') ||
+				($(this).text() == 'Medusa') ||
+				($(this).text() == 'Arc Warden')
+				) {
+			$(this).css('background-color','#003A00');
+		}
+		else if(($(this).text() == 'Bane Elemental') ||
+				($(this).text() == 'Dark Seer') ||
+				($(this).text() == 'Death Prophet') ||
+				($(this).text() == 'Demon Witch') ||
+				($(this).text() == 'Enigma') ||
+				($(this).text() == 'Lich') ||
+				($(this).text() == 'Necrolyte') ||
+				($(this).text() == 'Oblivion') ||
+				($(this).text() == 'Obsidian Destroyer') ||
+				($(this).text() == 'Queen of Pain') ||
+				($(this).text() == 'Warlock') ||
+				($(this).text() == 'Shadow Demon') ||
+				($(this).text() == 'Batrider') ||
+				($(this).text() == 'Shadow Priest') ||
+				($(this).text() == 'Invoker') ||
+				($(this).text() == "Necro'lic") ||
+				($(this).text() == 'Tormented Soul') ||
+				($(this).text() == 'Witch Doctor') ||
+				($(this).text() == 'Ancient Apparition') ||
+				($(this).text() == 'Winter Wyvern')
+				) {
+			$(this).css('background-color','#000037');
+		}
+	});
+});
+
+	
+</script>
+
+
+
+
+<script>
+	
+	$(document).ready(function(){
+		$('#table_id td.y_n').each(function(){
+			if ($(this).text() == 'N') {
+				$(this).css('background-color','#f00');
+			}
+		});
+	});
+	<% var resultsRanksArray = [] %>
+	<% var gamesArray = [] %>
+	<% for (let i = 0; i < results.length; i++) { %>
+		<% resultsRanksArray[i] = results[i].overallrank %>
+		<% gamesArray[i] = results[i].games %>
+	<% }; %>
+	
+	function Hero(image, name, rank, games) {
+		this.image = image;
+		this.name = name;
+		this.rank = rank;
+		this.games = games;
+	}
+	
+	function Sentinel(image, name, rank, games) {
+		Hero.call(this, image, name, rank, games);
+		sentinelArray.push(this);
+	}	
+
+	function Scourge(image, name, rank, games) {
+		Hero.call(this, image, name, rank, games);
+		scourgeArray.push(this);
+	}	
+
+	sentinelArray = [];
+	scourgeArray = [];
+
+	var hero1 = new Sentinel("<img src='1.jpg'>", "Admiral", <%= resultsRanksArray[0] %>, <%= gamesArray[0] %>);
+	var hero2 = new Sentinel("<img src='2.jpg'>", "Beastmaster", <%= resultsRanksArray[1] %>, <%= gamesArray[1] %>);
+	var hero3 = new Sentinel("<img src='3.jpg'>", "Centaur Warchief", <%= resultsRanksArray[2] %>, <%= gamesArray[2] %>);
+	var hero4 = new Sentinel("<img src='4.jpg'>", "Earthshaker", <%= resultsRanksArray[3] %>, <%= gamesArray[3] %>);
+	var hero5 = new Sentinel("<img src='5.jpg'>", "Omniknight", <%= resultsRanksArray[4] %>, <%= gamesArray[4] %>);
+	var hero6 = new Sentinel("<img src='6.jpg'>", "Pandaren Brewmaster", <%= resultsRanksArray[5] %>, <%= gamesArray[5] %>);
+	var hero7 = new Sentinel("<img src='7.jpg'>", "Rogue Knight", <%= resultsRanksArray[6] %>, <%= gamesArray[6] %>);
+	var hero8 = new Sentinel("<img src='8.jpg'>", "Stone Giant", <%= resultsRanksArray[7] %>, <%= gamesArray[7] %>);
+	var hero9 = new Sentinel("<img src='9.jpg'>", "Tauren Chieftan", <%= resultsRanksArray[8] %>, <%= gamesArray[8] %>);
+	var hero10 = new Sentinel("<img src='10.jpg'>", "Treant Protector", <%= resultsRanksArray[9] %>, <%= gamesArray[9] %>);
+	var hero11 = new Sentinel("<img src='11.jpg'>", "Guardian Wisp", <%= resultsRanksArray[10] %>, <%= gamesArray[10] %>);
+	var hero12 = new Sentinel("<img src='12.jpg'>", "Alchemist", <%= resultsRanksArray[11] %>, <%= gamesArray[11] %>);
+	var hero13 = new Sentinel("<img src='13.jpg'>", "Clockwerk Goblin", <%= resultsRanksArray[12] %>, <%= gamesArray[12] %>);
+	var hero14 = new Sentinel("<img src='14.jpg'>", "Dragon Knight", <%= resultsRanksArray[13] %>, <%= gamesArray[13] %>);
+	var hero15 = new Sentinel("<img src='15.jpg'>", "Sacred Warrior", <%= resultsRanksArray[14] %>, <%= gamesArray[14] %>);
+	var hero16 = new Sentinel("<img src='16.jpg'>", "Bristleback", <%= resultsRanksArray[15] %>, <%= gamesArray[15] %>);
+	var hero17 = new Sentinel("<img src='17.jpg'>", "Phoenix", <%= resultsRanksArray[16] %>, <%= gamesArray[16] %>);
+	var hero19 = new Sentinel("<img src='18.jpg'>", "Legion Commander", <%= resultsRanksArray[17] %>, <%= gamesArray[17] %>);
+	var hero20 = new Sentinel("<img src='19.jpg'>", "Goblin Shredder", <%= resultsRanksArray[18] %>, <%= gamesArray[18] %>);
+	var hero21 = new Sentinel("<img src='20.jpg'>", "Earth Spirit", <%= resultsRanksArray[19] %>, <%= gamesArray[19] %>);
+
+	var hero22 = new Sentinel("<img src='21.jpg'>", "Anti-Mage", <%= resultsRanksArray[20] %>, <%= gamesArray[20] %>);
+	var hero23 = new Sentinel("<img src='22.jpg'>", "Dwarven Sniper", <%= resultsRanksArray[21] %>, <%= gamesArray[21] %>);
+	var hero24 = new Sentinel("<img src='23.jpg'>", "Juggernaut", <%= resultsRanksArray[22] %>, <%= gamesArray[22] %>);
+	var hero25 = new Sentinel("<img src='24.jpg'>", "Lone Druid", <%= resultsRanksArray[23] %>, <%= gamesArray[23] %>);
+	var hero26 = new Sentinel("<img src='25.jpg'>", "Moon Rider", <%= resultsRanksArray[24] %>, <%= gamesArray[24] %>);
+	var hero27 = new Sentinel("<img src='26.jpg'>", "Morphling", <%= resultsRanksArray[25] %>, <%= gamesArray[25] %>);
+	var hero28 = new Sentinel("<img src='27.jpg'>", "Naga Siren", <%= resultsRanksArray[26] %>, <%= gamesArray[26] %>);
+	var hero29 = new Sentinel("<img src='28.jpg'>", "Phantom Lancer", <%= resultsRanksArray[27] %>, <%= gamesArray[27] %>);
+	var hero30 = new Sentinel("<img src='29.jpg'>", "Priestess of the Moon", <%= resultsRanksArray[28] %>, <%= gamesArray[28] %>);
+	var hero31 = new Sentinel("<img src='30.jpg'>", "Stealth Assassin", <%= resultsRanksArray[29] %>, <%= gamesArray[29] %>);
+	var hero32 = new Sentinel("<img src='31.jpg'>", "Troll Warlord", <%= resultsRanksArray[30] %>, <%= gamesArray[30] %>);
+	var hero33 = new Sentinel("<img src='32.jpg'>", "Gyrocopter", <%= resultsRanksArray[31] %>, <%= gamesArray[31] %>);
+	var hero34 = new Sentinel("<img src='33.jpg'>", "Drow Ranger", <%= resultsRanksArray[32] %>, <%= gamesArray[32] %>);
+	var hero35 = new Sentinel("<img src='34.jpg'>", "Templar Assassin", <%= resultsRanksArray[33] %>, <%= gamesArray[33] %>);
+	var hero36 = new Sentinel("<img src='35.jpg'>", "Ursa Warrior", <%= resultsRanksArray[34] %>, <%= gamesArray[34] %>);
+	var hero37 = new Sentinel("<img src='36.jpg'>", "Vengeful Spirit", <%= resultsRanksArray[35] %>, <%= gamesArray[35] %>);
+	var hero38 = new Sentinel("<img src='37.jpg'>", "Bounty Hunter", <%= resultsRanksArray[36] %>, <%= gamesArray[36] %>);
+	var hero39 = new Sentinel("<img src='38.jpg'>", "Ember Spirit", <%= resultsRanksArray[37] %>, <%= gamesArray[37] %>);
+
+	var hero40 = new Sentinel("<img src='39.jpg'>", "Crystal Maiden", <%= resultsRanksArray[38] %>, <%= gamesArray[38] %>);
+	var hero41 = new Sentinel("<img src='40.jpg'>", "Enchantress", <%= resultsRanksArray[39] %>, <%= gamesArray[39] %>);
+	var hero42 = new Sentinel("<img src='41.jpg'>", "Faerie Dragon", <%= resultsRanksArray[40] %>, <%= gamesArray[40] %>);
+	var hero43 = new Sentinel("<img src='42.jpg'>", "Holy Knight", <%= resultsRanksArray[41] %>, <%= gamesArray[41] %>);
+	var hero44 = new Sentinel("<img src='43.jpg'>", "Keeper of the Light", <%= resultsRanksArray[42] %>, <%= gamesArray[42] %>);
+	var hero45 = new Sentinel("<img src='44.jpg'>", "Lord of Olympus", <%= resultsRanksArray[43] %>, <%= gamesArray[43] %>);
+	var hero46 = new Sentinel("<img src='45.jpg'>", "Prophet", <%= resultsRanksArray[44] %>, <%= gamesArray[44] %>);
+	var hero47 = new Sentinel("<img src='46.jpg'>", "Silencer", <%= resultsRanksArray[45] %>, <%= gamesArray[45] %>);
+	var hero48 = new Sentinel("<img src='47.jpg'>", "Slayer", <%= resultsRanksArray[46] %>, <%= gamesArray[46] %>);
+	var hero49 = new Sentinel("<img src='48.jpg'>", "Storm Spirit", <%= resultsRanksArray[47] %>, <%= gamesArray[47] %>);
+	var hero50 = new Sentinel("<img src='49.jpg'>", "Windrunner", <%= resultsRanksArray[48] %>, <%= gamesArray[48] %>);
+	var hero51 = new Sentinel("<img src='50.jpg'>", "Disruptor", <%= resultsRanksArray[49] %>, <%= gamesArray[49] %>);
+	var hero52 = new Sentinel("<img src='51.jpg'>", "Ogre Magi", <%= resultsRanksArray[50] %>, <%= gamesArray[50] %>);
+	var hero53 = new Sentinel("<img src='52.jpg'>", "Goblin Techies", <%= resultsRanksArray[51] %>, <%= gamesArray[51] %>);
+	var hero54 = new Sentinel("<img src='53.jpg'>", "Twin Head Dragon", <%= resultsRanksArray[52] %>, <%= gamesArray[52] %>);
+	var hero55 = new Sentinel("<img src='54.jpg'>", "Tinker", <%= resultsRanksArray[53] %>, <%= gamesArray[53] %>);
+	var hero56 = new Sentinel("<img src='55.jpg'>", "Shadow Shaman", <%= resultsRanksArray[54] %>, <%= gamesArray[54] %>);
+	var hero57 = new Sentinel("<img src='56.jpg'>", "Grand Magus", <%= resultsRanksArray[55] %>, <%= gamesArray[55] %>);
+	var hero58 = new Sentinel("<img src='57.jpg'>", "Skywrath Mage", <%= resultsRanksArray[56] %>, <%= gamesArray[56] %>);
+	var hero59 = new Sentinel("<img src='58.jpg'>", "Oracle", <%= resultsRanksArray[57] %>, <%= gamesArray[57] %>);
+
+
+
+	var hero60 = new Scourge("<img src='59.jpg'>", "Axe", <%= resultsRanksArray[58] %>, <%= gamesArray[58] %>);
+	var hero61 = new Scourge("<img src='60.jpg'>", "Chaos Knight", <%= resultsRanksArray[59] %>, <%= gamesArray[59] %>);
+	var hero62 = new Scourge("<img src='61.jpg'>", "Doom Bringer", <%= resultsRanksArray[60] %>, <%= gamesArray[60] %>);
+	var hero63 = new Scourge("<img src='62.jpg'>", "Lifestealer", <%= resultsRanksArray[61] %>, <%= gamesArray[61] %>);
+	var hero64 = new Scourge("<img src='63.jpg'>", "Lord of Avernus", <%= resultsRanksArray[62] %>, <%= gamesArray[62] %>);
+	var hero65 = new Scourge("<img src='64.jpg'>", "Lycanthrope", <%= resultsRanksArray[63] %>, <%= gamesArray[63] %>);
+	var hero66 = new Scourge("<img src='65.jpg'>", "Night Stalker", <%= resultsRanksArray[64] %>, <%= gamesArray[64] %>);
+	var hero67 = new Scourge("<img src='66.jpg'>", "Pit Lord", <%= resultsRanksArray[65] %>, <%= gamesArray[65] %>);
+	var hero68 = new Scourge("<img src='67.jpg'>", "Pudge", <%= resultsRanksArray[66] %>, <%= gamesArray[66] %>);
+	var hero69 = new Scourge("<img src='68.jpg'>", "Skeleton King", <%= resultsRanksArray[67] %>, <%= gamesArray[67] %>);
+	var hero70 = new Scourge("<img src='69.jpg'>", "Slithereen Guard", <%= resultsRanksArray[68] %>, <%= gamesArray[68] %>);
+	var hero71 = new Scourge("<img src='70.jpg'>", "Undying", <%= resultsRanksArray[69] %>, <%= gamesArray[69] %>);
+	var hero72 = new Scourge("<img src='71.jpg'>", "Tidehunter", <%= resultsRanksArray[70] %>, <%= gamesArray[70] %>);
+	var hero73 = new Scourge("<img src='72.jpg'>", "Magnataur", <%= resultsRanksArray[71] %>, <%= gamesArray[71] %>);
+	var hero74 = new Scourge("<img src='73.jpg'>", "Spiritbreaker", <%= resultsRanksArray[72] %>, <%= gamesArray[75] %>);
+	var hero75 = new Scourge("<img src='74.jpg'>", "Sand King", <%= resultsRanksArray[73] %>, <%= gamesArray[73] %>);
+
+	var hero76 = new Scourge("<img src='75.jpg'>", "Bloodseeker", <%= resultsRanksArray[74] %>, <%= gamesArray[74] %>);
+	var hero77 = new Scourge("<img src='76.jpg'>", "Bone Fletcher", <%= resultsRanksArray[75] %>, <%= gamesArray[75] %>);
+	var hero78 = new Scourge("<img src='77.jpg'>", "Broodmother", <%= resultsRanksArray[76] %>, <%= gamesArray[76] %>);
+	var hero79 = new Scourge("<img src='78.jpg'>", "Nerubian Assassin", <%= resultsRanksArray[77] %>, <%= gamesArray[77] %>);
+	var hero80 = new Scourge("<img src='79.jpg'>", "Nerubian Weaver", <%= resultsRanksArray[78] %>, <%= gamesArray[78] %>);
+	var hero81 = new Scourge("<img src='80.jpg'>", "Phantom Assassin", <%= resultsRanksArray[79] %>, <%= gamesArray[79] %>);
+	var hero82 = new Scourge("<img src='81.jpg'>", "Shadow Fiend", <%= resultsRanksArray[80] %>, <%= gamesArray[80] %>);
+	var hero83 = new Scourge("<img src='82.jpg'>", "Soul Keeper", <%= resultsRanksArray[81] %>, <%= gamesArray[81] %>);
+	var hero84 = new Scourge("<img src='83.jpg'>", "Spectre", <%= resultsRanksArray[82] %>, <%= gamesArray[82] %>);
+	var hero85 = new Scourge("<img src='84.jpg'>", "Venomancer", <%= resultsRanksArray[83] %>, <%= gamesArray[83] %>);
+	var hero86 = new Scourge("<img src='85.jpg'>", "Viper", <%= resultsRanksArray[84] %>, <%= gamesArray[84] %>);
+	var hero87 = new Scourge("<img src='86.jpg'>", "Geomancer", <%= resultsRanksArray[85] %>, <%= gamesArray[85] %>);
+	var hero88 = new Scourge("<img src='87.jpg'>", "Lightning Revenant", <%= resultsRanksArray[86] %>, <%= gamesArray[86] %>);
+	var hero89 = new Scourge("<img src='88.jpg'>", "Murloc Nightcrawler", <%= resultsRanksArray[87] %>, <%= gamesArray[87] %>);
+	var hero90 = new Scourge("<img src='89.jpg'>", "Faceless Void", <%= resultsRanksArray[88] %>, <%= gamesArray[88] %>);
+	var hero91 = new Scourge("<img src='90.jpg'>", "Medusa", <%= resultsRanksArray[89] %>, <%= gamesArray[89] %>);
+	var hero92 = new Scourge("<img src='91.jpg'>", "Arc Warden", <%= resultsRanksArray[90] %>, <%= gamesArray[90] %>);
+
+	var hero93 = new Scourge("<img src='92.jpg'>", "Bane Elemental", <%= resultsRanksArray[91] %>, <%= gamesArray[91] %>);
+	var hero94 = new Scourge("<img src='93.jpg'>", "Dark Seer", <%= resultsRanksArray[92] %>, <%= gamesArray[92] %>);
+	var hero95 = new Scourge("<img src='94.jpg'>", "Death Prophet", <%= resultsRanksArray[93] %>, <%= gamesArray[93] %>);
+	var hero96 = new Scourge("<img src='95.jpg'>", "Demon Witch", <%= resultsRanksArray[94] %>, <%= gamesArray[94] %>);
+	var hero97 = new Scourge("<img src='96.jpg'>", "Enigma", <%= resultsRanksArray[95] %>, <%= gamesArray[95] %>);
+	var hero98 = new Scourge("<img src='97.jpg'>", "Lich", <%= resultsRanksArray[96] %>, <%= gamesArray[96] %>);
+	var hero99 = new Scourge("<img src='98.jpg'>", "Necrolyte", <%= resultsRanksArray[97] %>, <%= gamesArray[97] %>);
+	var hero100 = new Scourge("<img src='99.jpg'>", "Oblivion", <%= resultsRanksArray[98] %>, <%= gamesArray[98] %>);
+	var hero101 = new Scourge("<img src='100.jpg'>", "Obsidian Destroyer", <%= resultsRanksArray[99] %>, <%= gamesArray[99] %>);
+	var hero102 = new Scourge("<img src='101.jpg'>", "Queen of Pain", <%= resultsRanksArray[100] %>, <%= gamesArray[100] %>);
+	var hero103 = new Scourge("<img src='102.jpg'>", "Warlock", <%= resultsRanksArray[101] %>, <%= gamesArray[101] %>);
+	var hero104 = new Scourge("<img src='103.jpg'>", "Shadow Demon", <%= resultsRanksArray[102] %>, <%= gamesArray[102] %>);
+	var hero105 = new Scourge("<img src='104.jpg'>", "Batrider", <%= resultsRanksArray[103] %>, <%= gamesArray[103] %>);
+	var hero106 = new Scourge("<img src='105.jpg'>", "Shadow Priest", <%= resultsRanksArray[104] %>, <%= gamesArray[104] %>);
+	var hero107 = new Scourge("<img src='106.jpg'>", "Invoker", <%= resultsRanksArray[105] %>, <%= gamesArray[105] %>);
+	var hero108 = new Scourge("<img src='107.jpg'>", "Necro'lic", <%= resultsRanksArray[106] %>, <%= gamesArray[106] %>);
+	var hero109 = new Scourge("<img src='108.jpg'>", "Tormented Soul", <%= resultsRanksArray[107] %>, <%= gamesArray[107] %>);
+	var hero110 = new Scourge("<img src='109.jpg'>", "Witch Doctor", <%= resultsRanksArray[108] %>, <%= gamesArray[108] %>);
+	var hero111 = new Scourge("<img src='110.jpg'>", "Ancient Apparition", <%= resultsRanksArray[109] %>, <%= gamesArray[109] %>);
+	var hero111 = new Scourge("<img src='111.jpg'>", "Winter Wyvern", <%= resultsRanksArray[110] %>, <%= gamesArray[110] %>);
+
+
+
+	document.getElementById("playerImageTag").innerHTML = "<img src='0.jpg'>";
+
+
+
+	sentinelArray.sort(function(a, b) {
+		return a.rank - b.rank;
+	});
+	
+    var sentinelHero2 = (Math.floor(Math.random() * 14));
+    document.getElementById("sentinelHero2ImageTag").innerHTML = sentinelArray[sentinelHero2].image;
+    document.getElementById("sentinelHero2Name").innerHTML = sentinelArray[sentinelHero2].name;
+	var sentinelHero2Rank = sentinelArray[sentinelHero2].rank;
+	sentinelArray[sentinelHero2].games = null;
+
+    var sentinelHero3 = 27-sentinelHero2;
+    document.getElementById("sentinelHero3ImageTag").innerHTML = sentinelArray[sentinelHero3].image;
+    document.getElementById("sentinelHero3Name").innerHTML = sentinelArray[sentinelHero3].name;
+	var sentinelHero3Rank = sentinelArray[sentinelHero3].rank;
+	sentinelArray[sentinelHero3].games = null;
+
+    var sentinelHero4 = (Math.floor(Math.random() * 15)+28);
+    document.getElementById("sentinelHero4ImageTag").innerHTML = sentinelArray[sentinelHero4].image;
+    document.getElementById("sentinelHero4Name").innerHTML = sentinelArray[sentinelHero4].name;
+	var sentinelHero4Rank = sentinelArray[sentinelHero4].rank;
+	sentinelArray[sentinelHero4].games = null;
+	
+    var sentinelHero5 = 85-sentinelHero4;
+
+    document.getElementById("sentinelHero5ImageTag").innerHTML = sentinelArray[sentinelHero5].image;
+    document.getElementById("sentinelHero5Name").innerHTML = sentinelArray[sentinelHero5].name;
+	var sentinelHero5Rank = sentinelArray[sentinelHero5].rank;
+	sentinelArray[sentinelHero5].games = null;
+	
+	sentinelArray.sort(function(a, b) {
+		return a.games - b.games;
+	});
+
+	var sentinelHero1;
+	var indexOfHeroWithLowestGames = 0;
+	function selectSentinel() {
+		console.log("Selecting hero with lowest games.")
+		sentinelHero1 = indexOfHeroWithLowestGames;
+			if (sentinelArray[sentinelHero1].games === null) {
+			indexOfHeroWithLowestGames++;
+			console.log("Hero already selected. Incrementing by 1.");
+			selectSentinel();
+		}
+	}
+	selectSentinel();
+    document.getElementById("sentinelHero1ImageTag").innerHTML = sentinelArray[sentinelHero1].image;
+    document.getElementById("sentinelHero1Name").innerHTML = sentinelArray[sentinelHero1].name;
+	var sentinelHero1Rank = sentinelArray[sentinelHero1].rank;
+
+
+
+	scourgeArray.sort(function(a, b) {
+		return a.rank - b.rank;
+	});
+
+
+    var scourgeHero2 = (Math.floor(Math.random() * 13));
+    document.getElementById("scourgeHero2ImageTag").innerHTML = scourgeArray[scourgeHero2].image;
+    document.getElementById("scourgeHero2Name").innerHTML = scourgeArray[scourgeHero2].name;
+	var scourgeHero2Rank = scourgeArray[scourgeHero2].rank;
+	scourgeArray[scourgeHero2].games = null;
+
+    var scourgeHero3 = 25-scourgeHero2;
+    document.getElementById("scourgeHero3ImageTag").innerHTML = scourgeArray[scourgeHero3].image;
+    document.getElementById("scourgeHero3Name").innerHTML = scourgeArray[scourgeHero3].name;
+	var scourgeHero3Rank = scourgeArray[scourgeHero3].rank;
+	scourgeArray[scourgeHero3].games = null;
+
+    var scourgeHero4 = (Math.floor(Math.random() * 14)+26);
+    document.getElementById("scourgeHero4ImageTag").innerHTML = scourgeArray[scourgeHero4].image;
+    document.getElementById("scourgeHero4Name").innerHTML = scourgeArray[scourgeHero4].name;
+	var scourgeHero4Rank = scourgeArray[scourgeHero4].rank;
+	scourgeArray[scourgeHero4].games = null;
+
+    var scourgeHero5 = 78-scourgeHero4;
+	if (scourgeHero4 === 39) {
+		scourgeHero5 = 40
+	}
+    document.getElementById("scourgeHero5ImageTag").innerHTML = scourgeArray[scourgeHero5].image;
+    document.getElementById("scourgeHero5Name").innerHTML = scourgeArray[scourgeHero5].name;
+	var scourgeHero5Rank = scourgeArray[scourgeHero5].rank;
+	scourgeArray[scourgeHero5].games = null;
+
+	
+</script>
+</body>
+</html>

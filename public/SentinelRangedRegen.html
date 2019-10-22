@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranged Regen</title>
+<link rel="stylesheet" type="text/css" href="SentinelStyle.css">
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <img src="Sentinel Ranged Regen Banner.png">
+</div>
+
+<table id="checklist">
+<thead><tr class="tableizer-firstrow"><th>Item</th><th>Cost</th><th>Location</th><th>Completed</th></tr></thead><tbody>
+ <tr><td>Ring of Protection+Ring of Regen+Animal Courier</td><td>775</td><td>Fountain</td><td>&nbsp;</td></tr>
+ <tr><td>Sobi Mask</td><td>325</td><td>Side Shop</td><td>Basilius</td></tr>
+ <tr><td>Ring of Regen</td><td>350</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Speed</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Chainmail</td><td>550</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Slippers of Agi</td><td>150</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Circlet of Nobility+Wraith Band+2xHeaddress of Rejuvenation+Nathrezim+3xBranch</td><td>1085</td><td>Fountain</td><td>Aquila+Headdress+Headress+Nathrezim</td></tr>
+ <tr><td>Ring of Regen</td><td>350</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier get</b> Mekansm</td><td>900</td><td>Fountain</td><td>Mekansm</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Regen+Planeswalker Cloak</td><td>900</td><td>Side Shop</td><td>Hood of Defiance</td></tr>
+ <tr><td><b>Animal Courier get</b> Khadgar's</td><td>900</td><td>Fountain</td><td>Khadgar's</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td>Boots of Travel</td><td>2000</td><td>Fountain</td><td>Boots of Travel</td></tr>
+ <tr><td>Ultimate Orb+Linken's</td><td>3425</td><td>Fountain</td><td>Linken's</td></tr>
+ <tr><td>Vitality+Energy+Point Boosters</td><td>3300</td><td>Secret Shop</td><td>Bloodstone</td></tr>
+</tbody></table>
+<script>
+
+var list = document.querySelector('table');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'TD') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+</script>
+
+</body>
+</html>

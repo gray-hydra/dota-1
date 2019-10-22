@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melee Caster</title>
+<link rel="stylesheet" type="text/css" href="ScourgeStyle.css">
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <img src="Scourge Melee Caster Banner.png">
+</div>
+
+<table id="checklist">
+<thead><tr class="tableizer-firstrow"><th>Item</th><th>Cost</th><th>Location</th><th>Completed</th></tr></thead><tbody>
+ <tr><td>Animal Courier+Quelling Blade</td><td>375</td><td>Fountain</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Sobi Mask</td><td>325</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier Get</b> Ring of Protection</td><td>175</td><td>Fountain</td><td>Basilius</td></tr>
+ <tr><td>Stout Shield</td><td>250</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Slippers of Agi</td><td>150</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Slippers of Agi</td><td>150</td><td>Side Shop</td><td>Poor Man's Shield</td></tr>
+ <tr><td>Slippers of Agi</td><td>150</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier Get</b> Circlet of Noblity+Wraith Band</td><td>335</td><td>Fountain</td><td>Aquila</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>Perseverance</td></tr>
+   <tr><td>Sell Quelling Blade</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Speed</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier Get</b> Broadsword</td><td>1200</td><td>Fountain</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier Get</b> Claymore</td><td>1400</td><td>Fountain</td><td>Battle Fury</td></tr>
+ <tr><td>Sell Poor Man's Shield</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Sobi Mask</td><td>325</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Quarterstaff</td><td>900</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Robe of the Magi</td><td>450</td><td>Side Shop</td><td>Oblivion Staff</td></tr>
+ <tr><td>Sobi Mask</td><td>325</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Quarterstaff+Robe of the Magi</td><td>1350</td><td>Side Shop</td><td>Oblivion Staff</td></tr>
+ <tr><td><b>Animal Courier Get</b> Orchid Malevolance</td><td>775</td><td>Fountain</td><td>Orchid Malevolance</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td>Boots of Travel</td><td>2000</td><td>Fountain</td><td>Boots of Travel</td></tr>
+ <tr><td>Vitality+Energy+Point Boosters</td><td>3300</td><td>Secret Shop</td><td>Bloodstone</td></tr>
+ <tr><td>Ultimate Orb+Linken's</td><td>3425</td><td>Fountain</td><td>Linken's</td></tr>
+</tbody></table>
+
+<script>
+
+var list = document.querySelector('table');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'TD') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+</script>
+
+</body>
+</html>

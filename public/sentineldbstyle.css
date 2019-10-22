@@ -1,0 +1,110 @@
+@font-face {
+	font-family: 'SentinelFont';
+	src: url('wc.ttf');
+}
+
+@font-face {
+	font-family: 'WarcraftFont';
+	src: url('Warcraft.ttf');
+}
+
+
+body {
+	background: #000000;
+	color: azure;
+}
+* {
+	font-weight: bold; 
+}
+
+a {
+	text-decoration: none;
+	cursor: url(NightElf.cur), default;
+}
+	
+.header {
+	padding-top: 0px;
+	padding-bottom: 4px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+	background: #000000;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	border: black;
+	margin-bottom: 0.5%;
+}
+
+.updatebutton {
+	background:none!important;
+	font-family: 'SentinelFont';
+	color:inherit;
+	border:none; 
+	padding:0!important;
+	cursor: url(NightElf.cur), default;
+	font-size:1.5vw;
+	width:100%;
+	height:100%;
+	vertical-align: top;
+}
+
+table td {
+	font-family: 'SentinelFont';
+	border: 1px solid #ddd;
+	text-align: center;
+	padding: .65vw;
+	cursor: url(NightElf3.cur), default;
+	height: 3.1vw;
+}
+
+.strength {
+	float:left;
+	background-color:#7D0E06;
+	width: 33%;
+	border-right-width: 0px;
+
+}
+
+.agility {
+	float:left;
+	background-color:#057D2D;
+	width: 34%;
+}
+
+.intelligence {
+	float:left;
+	background-color:#05437D;
+	width: 33%;
+}
+
+.intelligence tr td:nth-child(3) {
+	font-style: italic;
+	text-shadow: -1px 0 black, 0 10px black, 10px 0 black, 0 -1px black;
+	text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+	font-size: 2vw;
+	padding: 2px;
+	padding-right: 4px;
+	border-right-width: 1px;
+}
+table tr td:nth-child(1) {
+	line-height: 0px;
+	padding: 0px;
+}
+table tr td:nth-child(2) {
+	font-style: italic;
+	padding: .65vw;
+	font-size: 1.2vw;
+}
+table tr td:nth-child(3) {
+	font-style: italic;
+	text-shadow: -1px 0 black, 0 10px black, 10px 0 black, 0 -1px black;
+	text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+	font-size: 2vw;
+	padding: 2px;
+	padding-right: 4px;
+	border-right-width: 0px;
+}
+

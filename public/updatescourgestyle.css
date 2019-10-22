@@ -1,0 +1,122 @@
+@font-face {
+	font-family: 'SentinelFont';
+	src: url('wc.ttf');
+}
+
+@font-face {
+	font-family: 'WarcraftFont';
+	src: url('Warcraft.ttf');
+}
+
+
+body {
+	background: #000000;
+	color: #A19DFF;
+}
+* {
+	font-weight: bold; 
+	font-size: 2vw;
+	cursor: url(Undead.cur), default;
+}
+
+a {
+	text-decoration: none;
+}
+	
+.header {
+	padding-top: 0px;
+	padding-bottom: 4px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+	background: #000000;
+}
+
+.column1 {
+	float: left;
+	width: 20%;
+}
+.column2 {
+	padding-left: 1vw;
+	float: left;
+	width: 49%;
+}
+.column3 {
+	float: left;
+	width: 10%;
+	padding-left: 4px;
+	padding-top: 6px;
+}
+
+input {
+	font-family: 'WarcraftFont';
+	width: 100%;
+	font-size: 1.7vw;
+}
+
+.mainTable {
+	border-collapse: collapse;
+	width: 100%;
+	border: black;
+	line-height: 2vw;
+	font-size: 2vw;	
+}
+
+.heroIcon {
+	padding: 0px;
+	border:0;
+	background: #000000;
+}
+
+.ovrRank {
+	padding: 0px;
+	border: 0;
+	background: #000000;	
+	font-family: 'WarcraftFont';
+	line-height: 100%;
+}
+
+.emptycell {
+	border: 0;
+	font-style: italic;
+	background: #000000;
+	font-weight: normal;
+	font-family: 'WarcraftFont';
+	font-size: 2vw;
+	color: #ff6666;
+}
+
+.formTable {    
+	border-collapse: collapse;
+	width: 100%;
+	border: black;
+	line-height: 1.8vw;
+}
+
+table th {
+	color: antiquewhite;
+	font-weight: bold; 
+	font-size: 1.2em;
+	background-color: #4D4D4D;
+	font-family: 'SentinelFont';
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+}	
+	
+
+
+table td {
+	font-family: 'SentinelFont';
+	background-color: #242424;
+	padding: .65vw;
+	border: 1px solid #ddd;
+	text-align: center;
+	
+}
+
+td:last-child {
+	font-style: italic;
+	text-shadow: -1px 0 black, 0 10px black, 10px 0 black, 0 -1px black;
+	text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+}

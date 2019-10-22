@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<script>
+<!-- The ranks of heroes are color coded. The higher they are, the more green the 
+color of their rank's number. The lower they are, the more red they are. I used
+a gradient generator website to calculate 111 different shades from green to 
+red. Note that all of the javascript on this page uses ejs notation. -->
+<%= colorArray = ["#00FF00", "#00FF00", "#02FC00", "#04FA00", "#06F800", "#09F500", "#0BF300", "#0DF100", "#10EE00", "#12EC00", "#14EA00", "#16E800", "#19E500", "#1BE300", "#1DE100", "#20DE00", "#22DC00", "#24DA00", "#27D700", "#29D500", "#2BD300", "#2DD100", "#30CE00", "#32CC00", "#34CA00", "#37C700", "#39C500", "#3BC300", "#3EC000", "#40BE00", "#42BC00", "#44BA00", "#47B700", "#49B500", "#4BB300", "#4EB000", "#50AE00", "#52AC00", "#55AA00", "#57A700", "#59A500", "#5BA300", "#5EA000", "#609E00", "#629C00", "#659900", "#679700", "#699500", "#6B9300", "#6E9000", "#708E00", "#728C00", "#758900", "#778700", "#798500", "#7C8200", "#7E8000", "#807E00", "#827C00", "#857900", "#877700", "#897500", "#8C7200", "#8E7000", "#906E00", "#936B00", "#956900", "#976700", "#996500", "#9C6200", "#9E6000", "#A05E00", "#A35B00", "#A55900", "#A75700", "#AA5500", "#AC5200", "#AE5000", "#B04E00", "#B34B00", "#B54900", "#B74700", "#BA4400", "#BC4200", "#BE4000", "#C03E00", "#C33B00", "#C53900", "#C73700", "#CA3400", "#CC3200", "#CE3000", "#D12D00", "#D32B00", "#D52900", "#D72700", "#DA2400", "#DC2200", "#DE2000", "#E11D00", "#E31B00", "#E51900", "#E81600", "#EA1400", "#EC1200", "#EE1000", "#F10D00", "#F30B00", "#F50900", "#F80600", "#FA0400", "#FC0200", "#FF0000"] %>
+
+<!-- When the hero's rank appears on the page, it is appended with the 
+corresponding ordinal (such as -st or -nd). This function decides which suffix
+to use. -->
+<%function ordinal (inputNumber) { %>
+	<%if (inputNumber >= 11 && inputNumber <= 13) { %>
+		<%return String(inputNumber) + "th" %>
+	<% }; %>
+	<%if (inputNumber >= 111 && inputNumber <= 111) { %>
+		<%return String(inputNumber) + "th" %>
+	<% }; %>
+	<% if (inputNumber % 10 === 1) { %>
+		<%return String(inputNumber) + "st"; %>
+	<% }; %>
+	<% if (inputNumber % 10 === 2) { %>
+		<%return String(inputNumber) + "nd"; %>
+	<% }; %>
+	<% if (inputNumber % 10 === 3) { %>
+		<%return String(inputNumber) + "rd"; %>
+	<% }; %>
+	<%return String(inputNumber) + "th" %>
+
+<% }; %>
+
+<!-- There are three different tables on the page, one for strength heroes, one 
+for agility heroes, and one for intelligence heroes. The following function
+ populates those tables with a row for each hero. -->
+<%function createTableRows(loopStart, loopEnd) { %>
+<!-- 'loopStart' tells us the id of the hero that will be the top row of the 
+table. 'loopEnd' tells us the id of the hero that will be at the bottom. -->
+<% for (let i = loopStart; i < loopEnd; i++) { %>
+<tr>
+<td>
+<!-- A form with the method POST is used to send data to the backend in order to 
+then be sent to the '/updatesentinel' page. The form here doesn't actually take 
+in any user input besides which hero they click on. The rank values such as 
+'killrank' were calculated in 'index.js' and sent to this page with a GET 
+request. -->
+<form method="POST" action="/updatescourge">
+  <input type="hidden" name="identifier" value=<%= i+1%> id=<%= i+1%>><br>
+  <input type="hidden" name="gamerank" value=<%= results[i].gamerank %>>
+  <input type="hidden" name="killrank" value=<%= results[i].killrank %>>
+  <input type="hidden" name="deathrank" value=<%= results[i].deathrank %>>
+  <input type="hidden" name="assistrank" value=<%= results[i].assistrank %>>
+  <input type="hidden" name="creeprank" value=<%= results[i].creeprank %>>
+  <input type="hidden" name="neutralrank" value=<%= results[i].neutralrank %>>
+  <input type="hidden" name="kdratiorank" value=<%= results[i].kdratiorank %>>
+  <input type="hidden" name="pvpratingrank" value=<%= results[i].pvpratingrank %>>
+  <input type="hidden" name="gamescorerank" value=<%= results[i].gamescorerank %>>
+  <input type="hidden" name="efficiencyrank" value=<%= results[i].efficiencyrank %>>
+  <input type="hidden" name="overallrank" value=<%= results[i].overallrank %>>
+  <button type="submit" class="updatebutton"><%=  results[i].hero %></button> 
+</form>
+</td>
+<td>
+<!-- Each hero has a build that they use in the game. There is an interactive 
+checklist for each build. The build each hero uses is broken down into three
+different parts: build, role, and variant. Also, scourge and sentinel have their
+own versions of each build. The following code concatenates those strings and
+is displayed on the page as a link to that build. -->
+<%if (results[i].variant !== null) { %>
+<a href= <%="Scourge" + results[i].build + results[i].role + results[i].variant + ".html"%> style="color:azure">
+<%=results[i].build %>
+<br>
+<%=results[i].role %>
+</a>
+<% } %>
+<%if (results[i].variant === null) { %>
+<a href= <%="Scourge" + results[i].build + results[i].role + ".html" %> style="color:azure">
+<%=results[i].build %>
+<br>
+<%=results[i].role %>
+</a>
+<% } %>
+</td>
+<!-- In the last cell of each row is a large number indicating that hero's overall
+rank. It is assigned its ordinal and given a color. That color is equivalent to 
+the index of their overallrank in the colorArray. -->
+<td style=<%= "color:" + colorArray[results[i].overallrank] %>>
+<a href="https://dota-1.herokuapp.com/leaderboardoverallasc" style=<%= "color:" + colorArray[results[i].overallrank] %> "text-decoration: none">
+<%= ordinal(results[i].overallrank) %>
+</a>
+</td>
+
+</tr>
+<% } %>
+<% }; %>
+
+
+
+</script>
+
+<head>
+<meta charset="utf-8">
+<title>Scourge</title>
+
+
+<link href="scourgedbstyle.css" rel="stylesheet" type="text/css">
+
+
+
+</head>
+
+<body>
+
+<!-- This creates the banner at the top of the page and makes a link that sends 
+the user to the sentinel page. -->
+<div id="myDIV" class="header">
+  <a href="https://dota-1.herokuapp.com/sentinel"><img src="Scourge Banner.png" width="100%" ></a>
+</div>
+
+
+<!-- This creates the strength table and calls the createTableRows function to 
+populate the table with a row for each hero. -->
+<table class="strength">
+
+  <colgroup>
+    <col style="background-color:#490000">
+    <col style="background-color:#490000">
+    <col style="background-color:#490000">
+
+  </colgroup>
+
+<% createTableRows(58, 74) %>
+
+<!-- There are 20 strength heroes and only 16 agility heroes. The following code
+adds four empty rows to the bottom of the strength table to make it the same 
+length as the intelligence table. -->
+<tr class="emptyrow"><td></td><td></td><td></td></tr>
+<tr class="emptyrow"><td></td><td></td><td></td></tr>
+<tr class="emptyrow"><td></td><td></td><td></td></tr>
+<tr class="emptyrow"><td></td><td></td><td></td></tr>
+
+</table>
+
+
+
+<table class="agility">
+
+  <colgroup>
+    <col style="background-color:#003A00">
+    <col style="background-color:#003A00">
+    <col style="background-color:#003A00">
+  </colgroup>
+
+<% createTableRows(74, 91) %>
+
+<tr class="emptyrow"><td></td><td></td><td></td></tr>
+<tr class="emptyrow"><td></td><td></td><td></td></tr>
+<tr class="emptyrow"><td></td><td></td><td></td></tr>
+
+</table>
+
+
+
+<table class="intelligence">
+
+  <colgroup>
+    <col style="background-color:#000037">
+    <col style="background-color:#000037">
+    <col style="background-color:#000037">
+  </colgroup>
+
+<% createTableRows(91, 111) %>
+
+</table>
+
+
+
+</body>
+</html>

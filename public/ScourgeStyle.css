@@ -1,0 +1,80 @@
+@font-face {
+		font-family: 'WC3Font';
+		src: url('wc.ttf');
+}	
+	
+	
+body {
+  margin: 0;
+  min-width: 250px;
+  background-color: #373737;
+  color: #A19DFF;
+  font-family: 'WC3Font';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #000000;
+  padding: 4px 4px;
+  text-align: center;
+  font-family: 'Warcraft Font';
+  font-size: 2em;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.addBtn:hover {
+  background-color: #515151;
+}
+
+
+/* The following code enables the cells on the table to turn black when clicked 
+on and have a strikethrough text decoration. THe user can use this page to keep 
+track of which items they have purchaed in the game. */
+#checklist {
+	font-family: "WC3Font";
+    border-collapse: collapse;
+    width: 100%;
+	border: black;
+	
+}
+
+#checklist td, #checklist th {
+    border: 1px solid #ddd;
+    padding: 5px;
+
+}
+	
+#checklist td {
+	cursor: url(Undead.cur), default;	
+}
+
+#checklist td.checked {
+  background: black;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+
+}	
+
+#checklist tr:nth-child(even){background-color: #f2f2f2;}
+
+#checklist td:hover {background-color: #5D5D5D;}
+
+#checklist th {
+
+    text-align: left;
+    background-color: #4D4D4D;
+    color: wheat;
+	font-weight: bold;
+
+}	

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melee Toughness</title>
+<link rel="stylesheet" type="text/css" href="ScourgeStyle.css">
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <img src="Scourge Melee Toughness Banner.png">
+</div>
+
+<table id="checklist">
+<thead><tr class="tableizer-firstrow"><th>Item</th><th>Cost</th><th>Location</th><th>Completed</th></tr></thead><tbody>
+ <tr><td>Animal Courier+Ring of Regen+Quelling Blade</td><td>725</td><td>Fountain</td><td>&nbsp;</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Sobi Mask</td><td>325</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier Get</b> Ring of Protection</td><td>175</td><td>Fountain</td><td>Basilius</td></tr>
+ <tr><td>Stout Shield</td><td>250</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Slippers of Agi</td><td>150</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Slippers of Agi</td><td>150</td><td>Side Shop</td><td>Poor Man's Shield</td></tr>
+ <tr><td>Mask of Death</td><td>900</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier Get</b> Vladimir's Offering</td><td>300</td><td>Fountain</td><td>Vladimir's</td></tr>
+ <tr><td><b>Animal Courier Get</b> Headdress+Branch+Ring of Regen</td><td>600</td><td>Fountain</td><td>Headdress</td></tr>
+ <tr><td>Boots of Speed</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Sell Quelling Blade</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Gloves of Haste</td><td>500</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Belt of Giant Strength</td><td>450</td><td>Side Shop</td><td>Power Treads</td></tr>
+ <tr><td>Ring of Regen</td><td>350</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Planeswalker Cloak+Ring of Regen</td><td>900</td><td>Side Shop</td><td>Defiance</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td><b>Animal Courier Get</b> Khadgar's</td><td>900</td><td>Fountain</td><td>Khadgar's Pipe</td></tr>
+ <tr><td><b>Animal Courier Get</b> Broadsword</td><td>1200</td><td>Fountain</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier Get</b> Claymore</td><td>1400</td><td>Fountain</td><td>Battle Fury</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td>Sell Poor Man's Shield</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Hyperstone</td><td>2000</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Plate Mail+Chainmail+Assault Cuirass Recipe</td><td>3250</td><td>Fountain</td><td>Assault Cuirass</td></tr>
+ <tr><td>Vitality+Energy+Point Boosters</td><td>3300</td><td>Secret Shop</td><td>Bloodstone</td></tr>
+</tbody></table>
+
+<script>
+
+var list = document.querySelector('table');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'TD') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intelligence Scepter</title>
+<link rel="stylesheet" type="text/css" href="SentinelStyle.css">
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <img src="Sentinel Intelligence Scepter Banner.png">
+</div>
+
+<table id="checklist">
+<thead><tr class="tableizer-firstrow"><th>Item</th><th>Cost</th><th>Location</th><th>Completed</th></tr></thead><tbody>
+  <tr><td>Animal Courier</td><td>150</td><td>Fountain</td><td></td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Sobi Mask</td><td>325</td><td>Side Shop</td><td>&nbsp;</td></tr>
+
+ <tr><td><b>Animal Courier get</b> Circlet of Nobility</td><td>185</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier get</b> Ring of Protection</td><td>175</td><td>Fountain</td><td>Ring of Basilius</td></tr>
+ <tr><td><b>Animal Courier get</b> Wraith Band + Slippers of Agi</td><td>300</td><td>Fountain</td><td>Aquila</td></tr>
+ <tr><td>Gloves of Haste</td><td>500</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Robe of the Magi</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Boots of Speed</td><td>450</td><td>Side Shop</td><td>Power Treads</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td><b>Animal Courier get</b> Staff of Wizardry</td><td>1000</td><td>Fountain</td><td>&nbsp;</td></tr>
+ <tr><td>Point Booster</td><td>1200</td><td>Secret Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier get</b> Blade of Alacrity+Ogre Axe</td><td>2000</td><td>Fountain</td><td>Scepter</td></tr>
+ <tr><td>Ring of Health</td><td>875</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td>Void Stone</td><td>875</td><td>Secret Shop</td><td>Perseverance</td></tr>
+ <tr><td>Blades of Attack</td><td>450</td><td>Side Shop</td><td>&nbsp;</td></tr>
+ <tr><td><b>Animal Courier get</b> Broadsword+Crystalys</td><td>1700</td><td>Fountain</td><td>Crystalys</td></tr>
+ <tr><td>Demon Edge+Buriza</td><td>3400</td><td>Secret Shop+Fountain</td><td>Buriza</td></tr>
+ <tr><td>Vitality+Energy+Point Boosters</td><td>3300</td><td>Secret Shop</td><td>Bloodstone</td></tr>
+ <tr><td>Ultimate Orb+Linken's</td><td>3425</td><td>Fountain</td><td>Linken's</td></tr>
+</tbody></table>
+<script>
+
+var list = document.querySelector('table');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'TD') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+</script>
+
+</body>
+</html>

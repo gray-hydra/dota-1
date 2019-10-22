@@ -1,0 +1,35 @@
+{
+  "name": "dota-1",
+  "version": "1.0.0",
+  "description": "dota stats",
+  "engines": {
+    "node": "10.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "method-override": "^3.0.0",
+    "nodemon": "^1.18.5",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.5.2"
+  },
+  "devDependencies": {
+    "pg-promise": "^8.5.2",
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mutagenink/dota-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mutagenink/dota-1/issues"
+  },
+  "homepage": "https://github.com/mutagenink/dota-1#readme"
+}

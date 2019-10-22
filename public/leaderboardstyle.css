@@ -1,0 +1,125 @@
+@font-face {
+	font-family: 'SentinelFont';
+	src: url('wc.ttf');
+}
+
+@font-face {
+	font-family: 'WarcraftFont';
+	src: url('Warcraft.ttf');
+}
+
+
+body {
+	background: #000000;
+	color: #A19DFF;
+}
+* {
+	font-weight: bold; 
+}
+
+a {
+	color: antiquewhite;
+	text-decoration: none;
+}
+
+.headerTable {
+	font-weight: bold; 
+	font-size: 1.2em;
+	background-color: black;
+	font-family: 'SentinelFont';
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+.headerTableCell {
+	height: 8.9vw;
+	width: 20%;
+}
+
+
+/* The hero names are actually form buttons. Here they are styled to look just
+like normal text on the page. */
+.updatebutton {
+	background:none!important;
+	font-family: 'SentinelFont';
+	color:inherit;
+	border:none; 
+	padding:0!important;
+	width:100%;
+	height:100%;
+	vertical-align: top;
+	font-size: inherit;
+}
+
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}	
+/* The header for the category being sorted by is made a shade lighter to make 
+it more apparent which column is the one being sorted by. */
+.headerActive {
+	font-weight: bold; 
+	font-size: 1.2em;
+	background-color: #898989;
+	font-family: 'SentinelFont';
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+	width: 8.5%;
+}
+
+.headerInactive {
+	font-weight: bold; 
+	font-size: 1.2em;
+	background-color: #4D4D4D;
+	font-family: 'SentinelFont';
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+	width: 8.5%;
+}
+/* Some header names are long and need extra space so they don't get bumped 
+onto two lines they are given the class 'headerAcive2' and 'headerInactive2'
+and made a little wider to accomadate the small arrow indicating sort order. */
+.headerActive2 {
+	font-weight: bold; 
+	font-size: 1.2em;
+	background-color: #898989;
+	font-family: 'SentinelFont';
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+	width: 10.5%;
+}
+
+.headerInactive2 {
+	font-weight: bold; 
+	font-size: 1.2em;
+	background-color: #4D4D4D;
+	font-family: 'SentinelFont';
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+	width: 8.3%;
+}
+
+/* The first column of the table contains the hero names which can be a bit long 
+so it is a little wider than the other columns. */
+.maintable tr td:nth-child(1) {
+	color: azure;
+	font-family: 'SentinelFont';
+	border: 1px solid #ddd;
+	text-align: center;
+	text-shadow: none;
+	width: 15%;
+}
+
+.maintable tr td:not(:first-child) {
+	font-family: 'SentinelFont';
+	border: 1px solid #ddd;
+	text-align: center;
+	text-shadow: -1px 0 black, 0 10px black, 10px 0 black, 0 -1px black;
+	text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+}

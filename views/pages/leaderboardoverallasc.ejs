@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+
+<!-- The ranks of heroes are color coded. The higher they are, the more 
+green the color of their rank's number. The lower they are, the more red 
+they are. I useda gradient generator website to calculate 111 different 
+shades from green to red. Note that all of the javascript on this page 
+uses ejs notation. -->
+<script>
+<%= colorArray = ["#000000", "#00FF00", "#02FC00", "#04FA00", "#06F800", "#09F500", "#0BF300", "#0DF100", "#10EE00", "#12EC00", "#14EA00", "#16E800", "#19E500", "#1BE300", "#1DE100", "#20DE00", "#22DC00", "#24DA00", "#27D700", "#29D500", "#2BD300", "#2DD100", "#30CE00", "#32CC00", "#34CA00", "#37C700", "#39C500", "#3BC300", "#3EC000", "#40BE00", "#42BC00", "#44BA00", "#47B700", "#49B500", "#4BB300", "#4EB000", "#50AE00", "#52AC00", "#55AA00", "#57A700", "#59A500", "#5BA300", "#5EA000", "#609E00", "#629C00", "#659900", "#679700", "#699500", "#6B9300", "#6E9000", "#708E00", "#728C00", "#758900", "#778700", "#798500", "#7C8200", "#7E8000", "#807E00", "#827C00", "#857900", "#877700", "#897500", "#8C7200", "#8E7000", "#906E00", "#936B00", "#956900", "#976700", "#996500", "#9C6200", "#9E6000", "#A05E00", "#A35B00", "#A55900", "#A75700", "#AA5500", "#AC5200", "#AE5000", "#B04E00", "#B34B00", "#B54900", "#B74700", "#BA4400", "#BC4200", "#BE4000", "#C03E00", "#C33B00", "#C53900", "#C73700", "#CA3400", "#CC3200", "#CE3000", "#D12D00", "#D32B00", "#D52900", "#D72700", "#DA2400", "#DC2200", "#DE2000", "#E11D00", "#E31B00", "#E51900", "#E81600", "#EA1400", "#EC1200", "#EE1000", "#F10D00", "#F30B00", "#F50900", "#F80600", "#FA0400", "#FC0200", "#FF0000"] %>
+<!-- There are three types of heroes and two teams, so there are 6 colors a hero 
+can have -->
+<%= teamColorArray = ["#ff6666", "#66ff66", "#66ccff", "#cc0000", "#00cc00", "#0099cc"] %>
+
+<!-- Because this is the overall leaderboard, we sort the heroes by their 
+overall property. -->
+<% results.sort(function(a, b) { %>
+<%	return a.overall - b.overall; %>
+<% }); %>
+<!-- Next, we use find the index that each hero is at in the array -->
+<% function findWithAttr(array, attr, value) { %>
+	<% for (let j = 0; j < array.length; j++) { %>
+		<% if (array[j][attr] === value) { %>
+			<% return j; %>
+		<% } %>
+	<% } %>
+	<% return -1; %>
+<% } %>
+
+<%var heroColor = 0 %>
+<!-- When each hero's row is created, this function is called to determine what 
+color their row should be based on their id. -->
+<% function selectHeroColor(heroid) { %>
+	<%if (heroid <= 20) { %>
+		<%= heroColor = 0 %>
+	<% } %>
+	<%if (heroid >= 21 && heroid <= 38) { %>
+		<%= heroColor = 1 %>
+	<% } %>
+	<%if (heroid >= 39 && heroid <= 58) { %>
+		<%= heroColor = 2 %>
+	<% } %>
+	<%if (heroid >= 59 && heroid <= 74) { %>
+		<%= heroColor = 3 %>
+	<% } %>
+	<%if (heroid >= 75 && heroid <= 91) { %>
+		<%= heroColor = 4 %>
+	<% } %>
+	<%if (heroid >= 92) { %>
+		<%= heroColor = 5 %>
+	<% } %>
+<% } %>
+
+</script>
+
+<head>
+<meta charset="utf-8">
+<title>Leaders</title>
+
+<link href="leaderboardstyle.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<table class="headerTable">
+<tr>
+<td class="headerTableCell">
+<a href="https://dota-1.herokuapp.com/sentinel">
+<img src="Leaderboard Sentinel Banner Mono.png" width="100%" style="float:left">
+</a> 
+</td>
+<td class="headerTableCell">
+<a href="https://dota-1.herokuapp.com/leaderboardoveralltotalsasc">
+<img src="Leaderboard Totals Banner Mono.png" width="100%" style="float:left">
+</a> 
+</td>
+<td class="headerTableCell">
+<a href="https://dota-1.herokuapp.com/leaderboardoverallasc">
+<img src="Leaderboard Ranks Banner.png" width="100%" style="float:left">
+</a> 
+</td>
+<td class="headerTableCell">
+<a href="https://dota-1.herokuapp.com/leaderboardoverallpergameasc">
+<img src="Leaderboard Per Game Banner Mono.png" width="100%" style="float:left">
+</a> 
+</td>
+<td class="headerTableCell">
+<a href="https://dota-1.herokuapp.com/scourge">
+<img src="Leaderboard Scourge Banner 2 Mono.png" width="100%" style="float:left">
+</a>
+</td>
+</tr>
+</table>
+
+<table class="maintable">
+<!-- The header of the column that the table is sorted by is of the 'headerActive' class. All other headers are of the headerInactive class. The 'headerActive' will be styled differently. -->
+<th class="headerInactive">
+<!-- Each sortable category is done by loading a different page. I tried using Javascript to implement a sort function on the front end but it was slow and buggy. This solution is less clever but it's a lot simpler. -->
+<a href="https://dota-1.herokuapp.com/leaderboardidasc">Hero</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardkillsasc">Kills</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboarddeathsasc">Deaths</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardassistsasc">Assists</a>
+</th> 
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardcreepasc">Creep</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardneutralasc">Neutral</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardkdratioasc">KD Ratio</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardpvpratingasc">PVP Rating</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardgamescoreasc">Gamescore</a>
+</th>
+<th class="headerInactive">
+<a href="https://dota-1.herokuapp.com/leaderboardefficiencyasc">Efficiency</a>
+</th>
+<th class="headerActive">
+<a href="https://dota-1.herokuapp.com/leaderboardoveralldesc">Overall &#9650;</a>
+</th>
+<% for (let i = 0; i < 111; i++) { %>
+	<script>
+		<%= selectHeroColor(results[i].id) %>
+	</script>
+		<!-- Depending on the result of the selectHeroColor function which takes 
+		in a hero's id as parameter, the hero is assigned a color for their row 
+		in the table. Strength is red, agility is green, intelligence is blue, 
+		and scourge heroes are given a darker shade of each color. Hero ids are 
+		simple; 1-59 are the sentinel heroes, strength first, agility second, 
+		and intelligence third. 60-111 are the scourge heroes. -->
+		<%if (heroColor === 0) { %>
+			<tr style="background-image: linear-gradient(to right, #840000, black)">
+		<% } %>
+		<%if (heroColor === 1) { %>
+			<tr style="background-image: linear-gradient(to right, darkgreen, black)">
+		<% } %>
+		<%if (heroColor === 2) { %>
+			<tr style="background-image: linear-gradient(to right, darkblue, black)">
+		<% } %>
+		<%if (heroColor === 3) { %>
+			<tr style="background-image: linear-gradient(to right, #490000, black)">
+		<% } %>
+		<%if (heroColor === 4) { %>
+			<tr style="background-image: linear-gradient(to right, #003A00, black)">
+		<% } %>
+		<%if (heroColor === 5) { %>
+			<tr style="background-image: linear-gradient(to right, #000037, black)">
+		<% } %>
+			<td>
+		<%if (heroColor <= 2) { %>
+		<!-- 'heroColor' being less than 3 indicates that we are looking at a 
+		sentinel hero. The form below is the same one on the main sentinel page 
+		and functions the same way. -->
+				<form method="POST" action="/updatesentinel">
+				  <input type="hidden" name="identifier" value=<%= results[i].id%>>
+				  <input type="hidden" name="killrank" value=<%= results[i].killrank %>>
+				  <input type="hidden" name="deathrank" value=<%= results[i].deathrank %>>
+				  <input type="hidden" name="assistrank" value=<%= results[i].assistrank %>>
+				  <input type="hidden" name="creeprank" value=<%= results[i].creeprank %>>
+				  <input type="hidden" name="neutralrank" value=<%= results[i].neutralrank %>>
+				  <input type="hidden" name="kdratiorank" value=<%= results[i].kdratiorank %>>
+				  <input type="hidden" name="pvpratingrank" value=<%= results[i].pvpratingrank %>>
+				  <input type="hidden" name="gamescorerank" value=<%= results[i].gamescorerank %>>
+				  <input type="hidden" name="efficiencyrank" value=<%= results[i].efficiencyrank %>>
+				  <input type="hidden" name="overallrank" value=<%= results[i].overallrank %>>
+				  <button type="submit" class="updatebutton"><%=  results[i].hero %></button> 
+				</form>
+		<% } %>
+		
+		<%if (heroColor > 2) { %>
+		<!-- 'heroColor' being more than 2 indicates that we are looking at a 
+		scourge hero. The form below is the same one on the main scourge page 
+		and functions the same way. -->
+				<form method="POST" action="/updatescourge">
+				  <input type="hidden" name="identifier" value=<%= results[i].id%>>
+				  <input type="hidden" name="killrank" value=<%= results[i].killrank %>>
+				  <input type="hidden" name="deathrank" value=<%= results[i].deathrank %>>
+				  <input type="hidden" name="assistrank" value=<%= results[i].assistrank %>>
+				  <input type="hidden" name="creeprank" value=<%= results[i].creeprank %>>
+				  <input type="hidden" name="neutralrank" value=<%= results[i].neutralrank %>>
+				  <input type="hidden" name="kdratiorank" value=<%= results[i].kdratiorank %>>
+				  <input type="hidden" name="pvpratingrank" value=<%= results[i].pvpratingrank %>>
+				  <input type="hidden" name="gamescorerank" value=<%= results[i].gamescorerank %>>
+				  <input type="hidden" name="efficiencyrank" value=<%= results[i].efficiencyrank %>>
+				  <input type="hidden" name="overallrank" value=<%= results[i].overallrank %>>
+				  <button type="submit" class="updatebutton"><%=  results[i].hero %></button> 
+				</form>
+		<% } %>
+			</td>
+			<!-- The following data is sent to this page from 'index.js' with a 
+			GET request after the 'rank' properties are assigned by the 
+			'calculateRanks' function in 'index.js' -->
+			<td style=<%= "color:" + colorArray[results[i].killrank] %>>
+				<%= results[i].killrank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].deathrank] %>>
+				<%= results[i].deathrank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].assistrank] %>>
+				<%= results[i].assistrank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].creeprank] %>>
+				<%= results[i].creeprank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].neutralrank] %>>
+				<%= results[i].neutralrank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].kdratiorank] %>>
+				<%= results[i].kdratiorank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].pvpratingrank] %>>
+				<%= results[i].pvpratingrank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].gamescorerank] %>>
+				<%= results[i].gamescorerank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].efficiencyrank] %>>
+				<%= results[i].efficiencyrank %>
+			</td>
+			<td style=<%= "color:" + colorArray[results[i].overallrank] %>>
+				<%= results[i].overallrank %>
+			</td>
+		</tr>
+<% }; %>
+
+
+</table>
+</body>
+</html>
